@@ -8,12 +8,11 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "clientes")
-public class ClienteEntity {
+public class ClientEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String nombre;
-    private int edad;
+    private String id;
+    private String name;
+    private int age;
     private String email;
 }
