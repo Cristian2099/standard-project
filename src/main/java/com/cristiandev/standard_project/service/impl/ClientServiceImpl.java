@@ -1,6 +1,6 @@
 package com.cristiandev.standard_project.service.impl;
 
-import com.cristiandev.standard_project.dto.ClientDTO;
+import com.cristiandev.standard_project.dto.client.ClientDTO;
 import com.cristiandev.standard_project.entity.ClientEntity;
 import com.cristiandev.standard_project.exception.StandardProjectException;
 import com.cristiandev.standard_project.mapper.ClientMapper;
@@ -32,7 +32,7 @@ public class ClientServiceImpl implements ClientService {
         ClientEntity clientEntity = clientMapper.toEntity(client);
 
         try {
-            clientsRepository.save(clientEntity);
+            clientsRepository.saveAndFlush(clientEntity);
         } catch (Exception e) {
             log.error(NOT_SAVED_ENTITY_MSG, e.getMessage());
             throw new StandardProjectException(CLIENT_NOT_CREATED_MSG, FAILED_DEPENDENCY,
